@@ -1,0 +1,139 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--phoenix-hero-background);
+  color: var(--phoenix-text-color);
+}
+
+.heroContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.heroText {
+  max-width: 600px;
+  text-align: left;
+}
+
+.heroImage {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 500px;
+}
+
+.heroImage img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 2rem;
+  }
+  
+  .heroContent {
+    flex-direction: column;
+  }
+  
+  .heroText {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .heroImage {
+    justify-content: center;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Statistics Section */
+.statistics {
+  background-color: var(--phoenix-light-background);
+  padding: 4rem 0;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.statItem {
+  flex: 1;
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--ifm-background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.statItem h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+@media screen and (max-width: 768px) {
+  .statsContainer {
+    flex-direction: column;
+  }
+}
+
+/* Call to Action Section */
+.callToAction {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  padding: 6rem 0;
+  margin-top: 4rem;
+}
+
+.ctaContent {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ctaContent p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .ctaButtons {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,84 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #0f52ba; /* Phoenix Blue */
+  --ifm-color-primary-dark: #0d49a6;
+  --ifm-color-primary-darker: #0c449d;
+  --ifm-color-primary-darkest: #0a3881;
+  --ifm-color-primary-light: #105bce;
+  --ifm-color-primary-lighter: #1160d6;
+  --ifm-color-primary-lightest: #1d6fe6;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Custom Phoenix Panel variables */
+  --phoenix-hero-background: linear-gradient(90deg, #0f52ba, #1a73e8);
+  --phoenix-text-color: #ffffff;
+  --phoenix-secondary-color: #ff5722;
+  --phoenix-light-background: #f5f6f7;
+}
+
+/* For dark mode styling */
+[data-theme='dark'] {
+  --ifm-color-primary: #1a73e8; /* Phoenix Bright Blue */
+  --ifm-color-primary-dark: #1766cf;
+  --ifm-color-primary-darker: #1560c3;
+  --ifm-color-primary-darkest: #114fa1;
+  --ifm-color-primary-light: #3283ea;
+  --ifm-color-primary-lighter: #3f8beb;
+  --ifm-color-primary-lightest: #65a1ef;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Custom Phoenix Panel Dark Mode variables */
+  --phoenix-hero-background: linear-gradient(90deg, #0d1117, #1a1d23);
+  --phoenix-text-color: #ffffff;
+  --phoenix-secondary-color: #ff7043;
+  --phoenix-light-background: #1a1d23;
+}
+
+/* Additional global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+.hero {
+  background: var(--phoenix-hero-background);
+  color: var(--phoenix-text-color);
+  padding: 4rem 0;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--secondary {
+  background-color: var(--phoenix-secondary-color);
+  border-color: var(--phoenix-secondary-color);
+  color: white;
+}
+
+.button--secondary:hover {
+  background-color: var(--phoenix-secondary-color);
+  opacity: 0.9;
+}
+
+.button--lg {
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+}

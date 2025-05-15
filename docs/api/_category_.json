@@ -1,0 +1,8 @@
+{
+  "label": "API Reference",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Complete API documentation for PhoenixPanel, allowing you to integrate and automate your game server management."
+  }
+}

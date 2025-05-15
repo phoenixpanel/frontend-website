@@ -1,0 +1,268 @@
+---
+sidebar_position: 1
+---
+
+# Panel Installation
+
+This guide will walk you through the process of installing PhoenixPanel on your server.
+
+## Supported Software
+
+PhoenixPanel has a few requirements that must be met before beginning the installation process.
+
+| Software | Minimum Version | Recommended Version |
+|----------|-----------------|---------------------|
+| PHP      | 8.1.0           | 8.2+                |
+| MySQL    | 8.0.0           | 8.0+                |
+| PostgreSQL | 13.0.0        | 14.0+               |
+| Redis    | 6.0.0           | 7.0+                |
+
+## Dependency Installation
+
+### Install PHP 8.2
+
+First, we need to ensure we have the correct PHP version installed:
+
+```bash
+# Ubuntu 22.04
+sudo apt update
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install -y php8.2 php8.2-common php8.2-cli php8.2-gd php8.2-mysql php8.2-mbstring php8.2-bcmath php8.2-xml php8.2-curl php8.2-zip php8.2-fpm
+```
+
+### Install Composer
+
+```bash
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+```
+
+### Install MySQL
+
+```bash
+sudo apt install -y mysql-server
+```
+
+Configure MySQL:
+
+```bash
+sudo mysql_secure_installation
+```
+
+Create a database and user:
+
+```bash
+sudo mysql -u root -p
+```
+
+```sql
+CREATE USER 'phoenixpanel'@'localhost' IDENTIFIED BY 'yourpassword';
+CREATE DATABASE panel;
+GRANT ALL PRIVILEGES ON panel.* TO 'phoenixpanel'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### Install Nginx
+
+```bash
+sudo apt install -y nginx
+```
+
+### Install Redis
+
+```bash
+sudo apt install -y redis-server
+```
+
+## Download Files
+
+Download the latest panel files:
+
+```bash
+mkdir -p /var/www/phoenixpanel
+cd /var/www/phoenixpanel
+curl -Lo panel.tar.gz https://github.com/phoenixpanel/panel/releases/latest/download/panel.tar.gz
+tar -xzvf panel.tar.gz
+chmod -R 755 storage/* bootstrap/cache/
+```
+
+## Panel Setup
+
+### Configure Environment
+
+Copy the default environment file:
+
+```bash
+cp .env.example .env
+```
+
+Generate an application key:
+
+```bash
+php artisan key:generate --force
+```
+
+Edit the `.env` file and update the following settings:
+
+```
+APP_URL=https://your.domain.com
+APP_TIMEZONE=UTC
+
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=panel
+DB_USERNAME=phoenixpanel
+DB_PASSWORD=yourpassword
+
+CACHE_DRIVER=redis
+SESSION_DRIVER=redis
+QUEUE_CONNECTION=redis
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+```
+
+### Setup Database
+
+Run the database migrations and create the first user:
+
+```bash
+php artisan migrate --seed --force
+php artisan p:user:make
+```
+
+### Set Permissions
+
+Make sure the web server has the correct permissions:
+
+```bash
+sudo chown -R www-data:www-data /var/www/phoenixpanel/*
+```
+
+### Configure Nginx
+
+Create a new Nginx configuration file:
+
+```bash
+sudo nano /etc/nginx/sites-available/phoenixpanel.conf
+```
+
+Add the following configuration:
+
+```nginx
+server {
+    listen 80;
+    server_name your.domain.com;
+    root /var/www/phoenixpanel/public;
+
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+Enable the configuration:
+
+```bash
+sudo ln -s /etc/nginx/sites-available/phoenixpanel.conf /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+### SSL Configuration (Optional but Recommended)
+
+Install Certbot:
+
+```bash
+sudo apt install -y certbot python3-certbot-nginx
+```
+
+Obtain an SSL certificate:
+
+```bash
+sudo certbot --nginx -d your.domain.com
+```
+
+### Configure Queue Worker
+
+PhoenixPanel uses queues for handling tasks. Create a systemd service:
+
+```bash
+sudo nano /etc/systemd/system/phoenixpanel.service
+```
+
+Add the following configuration:
+
+```
+[Unit]
+Description=PhoenixPanel Queue Worker
+After=mysql.service redis-server.service
+
+[Service]
+User=www-data
+Group=www-data
+Restart=always
+ExecStart=/usr/bin/php /var/www/phoenixpanel/artisan queue:work --queue=high,standard,low --sleep=3 --tries=3
+StartLimitInterval=180
+StartLimitBurst=30
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Start and enable the service:
+
+```bash
+sudo systemctl enable --now phoenixpanel.service
+```
+
+## Updating PhoenixPanel
+
+To update PhoenixPanel to the latest version, follow these steps:
+
+```bash
+cd /var/www/phoenixpanel
+php artisan down
+curl -L https://github.com/phoenixpanel/panel/releases/latest/download/panel.tar.gz | tar -xzv
+chmod -R 755 storage/* bootstrap/cache/
+composer install --no-dev --optimize-autoloader
+php artisan migrate --force
+php artisan view:clear
+php artisan config:clear
+sudo chown -R www-data:www-data /var/www/phoenixpanel/*
+php artisan queue:restart
+php artisan up
+```
+
+## Next Steps
+
+Now that you have installed the panel, you need to:
+
+1. [Configure settings](/docs/project/panel/configuration)
+2. [Install Wings](/docs/project/wings/installing) on your game servers
+3. [Create your first server](/docs/project/servers/creation)
+
+## Troubleshooting
+
+If you encounter any issues during installation, check the following:
+
+1. Make sure all the required PHP extensions are installed
+2. Check the logs at `storage/logs/laravel.log`
+3. Ensure the permissions are set correctly
+4. Verify that all the services (MySQL, Redis, etc.) are running
+5. Make sure your `.env` file is properly configured
+
+For more help, join our [Discord server](https://discord.gg/phoenixpanel) or check the [Community forums](https://community.phoenixpanel.io).

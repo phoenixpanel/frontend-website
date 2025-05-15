@@ -1,0 +1,8 @@
+{
+  "label": "Project Documentation",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "PhoenixPanel project documentation including installation, configuration, and usage guides."
+  }
+}
