@@ -65,22 +65,24 @@ function HomepageStatistics() {
 
 function CallToAction() {
   return (
-    <section className={styles.callToAction}>
+    <section className={`${styles.callToAction} callToAction`}>
       <div className="container">
         <div className={styles.ctaContent}>
-          <h2>Ready to take control of your game servers?</h2>
-          <p>PhoenixPanel makes server management simple, secure, and powerful.</p>
-          <div className={styles.ctaButtons}>
-            <Link
-              className="button button--primary button--lg"
-              to="/docs/project/panel/installation">
-              Install PhoenixPanel
-            </Link>
-            <Link
-              className="button button--outline button--lg"
-              href="https://github.com/phoenixpanel/panel">
-              View on GitHub
-            </Link>
+          <div className={styles.ctaText}>
+            <h2>Ready to take control of your game servers?</h2>
+            <p>PhoenixPanel makes server management simple, secure, and powerful.</p>
+            <div className={styles.ctaButtons}>
+              <Link
+                className="button button--secondary button--lg"
+                to="/docs/project/panel/installation">
+                Install PhoenixPanel
+              </Link>
+              <Link
+                className="button button--primary button--lg"
+                href="https://github.com/phoenixpanel/panel">
+                View on GitHub
+              </Link>
+            </div>
           </div>
         </div>
       </div>

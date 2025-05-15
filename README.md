@@ -1,17 +1,41 @@
-# frontend-website
+# Website
 
-This website shows off all documentation for our Phoenixpanel website. 
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-- API
-- how to install
-- features
-- roadmap
-  and much more!
+### Installation
 
-# How to use
+```
+$ yarn
+```
 
-1. install nodejs v22.14.0
-2. install npm v10.9.2
-3. go into the phoenixpanel's frontend-website folder
-4. run npm start in terminal (cmd, or linux terminal)
-5. jobs done! should then be visable to you
+### Local Development
+
+```
+$ yarn start
+```
+
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```
+$ yarn build
+```
+
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

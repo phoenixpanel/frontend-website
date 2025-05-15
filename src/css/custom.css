@@ -82,3 +82,26 @@ html {
   font-weight: 600;
   padding: 0.75rem 1.5rem;
 }
+
+/* Button styles updated for better contrast and visibility */
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.button--secondary {
+  background-color: var(--phoenix-secondary-color);
+  border-color: var(--phoenix-secondary-color);
+  color: white;
+}
+
+.button--secondary:hover {
+  background-color: #e84c16; /* Slightly darker orange */
+  border-color: #e84c16;
+}

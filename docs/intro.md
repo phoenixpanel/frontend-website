@@ -96,5 +96,5 @@ Open your browser and navigate to your server's domain or IP address.
 If you encounter any issues or have questions:
 
 - Check the [Troubleshooting Guide](/docs/troubleshooting)
-- Join our [Discord Community](https://discord.gg/phoenixpanel)
+- Join our [Discord Community](https://discord.gg/4EWAVyJY9z)
 - [Create an issue](https://github.com/phoenixpanel/panel/issues) on GitHub

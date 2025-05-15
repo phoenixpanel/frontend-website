@@ -203,6 +203,6 @@ If game servers start but are not accessible, make sure your firewall is properl
 
 If you're still having issues, you can:
 
-* Check our [Community Discord](https://discord.gg/phoenixpanel) for real-time help
+* Check our [Community Discord](https://discord.gg/4EWAVyJY9z) for real-time help
 * Open an [Issue on GitHub](https://github.com/phoenixpanel/wings/issues)
 * Check the [Troubleshooting Documentation](/docs/project/troubleshooting)

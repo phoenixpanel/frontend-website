@@ -138,7 +138,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://discord.gg/phoenixpanel',
+                href: 'https://discord.gg/4EWAVyJY9z',
               },
               {
                 label: 'Twitter',

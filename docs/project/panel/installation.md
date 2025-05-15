@@ -265,4 +265,4 @@ If you encounter any issues during installation, check the following:
 4. Verify that all the services (MySQL, Redis, etc.) are running
 5. Make sure your `.env` file is properly configured
 
-For more help, join our [Discord server](https://discord.gg/phoenixpanel) or check the [Community forums](https://community.phoenixpanel.io).
+For more help, join our [Discord server](https://discord.gg/4EWAVyJY9z) or check the [Community forums](https://community.phoenixpanel.io).
