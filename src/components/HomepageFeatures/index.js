@@ -5,7 +5,8 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Modern Server Management',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    icon: '🖥️',
+    bgColor: 'var(--ifm-color-primary-darkest)',
     description: (
       <>
         Take control of your game servers with a modern, intuitive interface designed for
@@ -15,7 +16,8 @@ const FeatureList = [
   },
   {
     title: 'Resource Efficient',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    icon: '⚡',
+    bgColor: 'var(--ifm-color-primary-darker)',
     description: (
       <>
         PhoenixPanel is built with performance in mind, using minimal resources
@@ -25,7 +27,8 @@ const FeatureList = [
   },
   {
     title: 'Advanced Security',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    icon: '🔒',
+    bgColor: 'var(--ifm-color-primary)',
     description: (
       <>
         Rest easy knowing your game servers are protected by robust security features,
@@ -35,7 +38,8 @@ const FeatureList = [
   },
   {
     title: 'API-Powered',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    icon: '🔌',
+    bgColor: 'var(--ifm-color-primary-light)',
     description: (
       <>
         PhoenixPanel includes a powerful RESTful API that allows you to integrate
@@ -45,7 +49,8 @@ const FeatureList = [
   },
   {
     title: 'Multi-Server Support',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    icon: '🌐',
+    bgColor: 'var(--ifm-color-primary-lighter)',
     description: (
       <>
         Manage multiple game servers from a single dashboard. Support for various
@@ -55,7 +60,8 @@ const FeatureList = [
   },
   {
     title: 'Community Driven',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    icon: '👥',
+    bgColor: 'var(--ifm-color-primary-lightest)',
     description: (
       <>
         An open-source project with a thriving community of contributors and users
@@ -65,17 +71,18 @@ const FeatureList = [
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({icon, title, description, bgColor}) {
   return (
     <div className={clsx('col col--4')}>
       <div className={styles.featureCard}>
-        <div className={styles.featureIcon}>
-          <Svg className={styles.featureSvg} role="img" />
+        <div className={styles.featureIcon} style={{background: bgColor}}>
+          <span className={styles.featureEmoji}>{icon}</span>
         </div>
         <div className={styles.featureContent}>
           <Heading as="h3">{title}</Heading>
           <p>{description}</p>
         </div>
+        <div className={styles.featureCardHover}></div>
       </div>
     </div>
   );
@@ -84,10 +91,12 @@ function Feature({Svg, title, description}) {
 export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
+      <div className={styles.featuresBackground}></div>
       <div className="container">
         <div className={styles.featuresHeader}>
           <Heading as="h2">Why Choose PhoenixPanel?</Heading>
           <p>Game server management made simple, secure, and powerful.</p>
+          <div className={styles.featuresHeaderUnderline}></div>
         </div>
         <div className="row">
           {FeatureList.map((props, idx) => (

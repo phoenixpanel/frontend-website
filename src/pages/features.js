@@ -24,7 +24,8 @@ export default function Features() {
   return (
     <Layout
       title={`Features | ${siteConfig.title}`}
-      description="Explore the powerful features of PhoenixPanel">
+      description="The open-source game server management panel designed to be fast, secure, and easy to use."
+      image="img/phoenixpanel-social-card.jpg">
       <header className={styles.featuresHeader}>
         <div className="container">
           <Heading as="h1" className={styles.title}>PhoenixPanel Features</Heading>

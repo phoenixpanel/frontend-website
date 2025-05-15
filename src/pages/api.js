@@ -10,7 +10,8 @@ export default function API() {
   return (
     <Layout
       title={`API Reference | ${siteConfig.title}`}
-      description="PhoenixPanel API documentation and reference">
+      description="The open-source game server management panel designed to be fast, secure, and easy to use."
+      image="img/phoenixpanel-social-card.jpg">
       <header className={styles.apiHeader}>
         <div className="container">
           <Heading as="h1" className={styles.title}>API Reference</Heading>

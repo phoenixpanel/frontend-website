@@ -25,7 +25,7 @@ const config = {
   organizationName: 'phoenixpanel', // Usually your GitHub org/user name.
   projectName: 'phoenixpanel', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -97,14 +97,43 @@ const config = {
             position: 'left'
           },
           {
-            to: '/api',
-            label: 'API',
-            position: 'left'
+            type: 'dropdown',
+            label: 'Components',
+            position: 'left',
+            items: [
+              {
+                to: '/docs/project/panel/installation',
+                label: 'Panel',
+              },
+              {
+                to: '/docs/project/wings/installing',
+                label: 'Wings',
+              },
+            ],
           },
           {
-            to: '/docs/project/wings/installing',
-            label: 'Wings',
-            position: 'left'
+            to: '/api',
+            label: 'API',
+            position: 'left',
+          },
+          {
+            type: 'dropdown',
+            label: 'Community',
+            position: 'right',
+            items: [
+              {
+                href: 'https://discord.gg/4EWAVyJY9z',
+                label: 'Discord',
+              },
+              {
+                href: 'https://twitter.com/phoenixpanel',
+                label: 'Twitter',
+              },
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+            ],
           },
           {
             href: 'https://github.com/phoenixpanel/panel',
@@ -120,12 +149,16 @@ const config = {
             title: 'PhoenixPanel',
             items: [
               {
+                label: 'Home',
+                to: '/',
+              },
+              {
                 label: 'Features',
                 to: '/features',
               },
               {
                 label: 'Documentation',
-                to: '/docs',
+                to: '/docs/intro',
               },
               {
                 label: 'API',
@@ -144,6 +177,10 @@ const config = {
                 label: 'Twitter',
                 href: 'https://twitter.com/phoenixpanel',
               },
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
             ],
           },
           {
@@ -157,15 +194,61 @@ const config = {
                 label: 'Report a Bug',
                 href: 'https://github.com/phoenixpanel/panel/issues',
               },
+              {
+                label: 'Feature Requests',
+                href: 'https://github.com/phoenixpanel/panel/discussions',
+              },
+            ],
+          },
+          {
+            title: 'Resources',
+            items: [
+              {
+                label: 'Getting Started',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Installation Guide',
+                to: '/docs/project/panel/installation',
+              },
+              {
+                label: 'API Reference',
+                to: '/docs/api/introduction',
+              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} PhoenixPanel. All rights reserved.`,
+        copyright: `Copyright © ${new Date().getFullYear()} PhoenixPanel. All rights reserved. Built with ❤️ for game server admins.`,
       },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash', 'json', 'php', 'nginx', 'apacheconf', 'sql', 'yaml'],
+        defaultLanguage: 'javascript',
       },
+      metadata: [
+        // SEO keywords
+        {name: 'keywords', content: 'game server, server management, game hosting, hosting panel, phoenixpanel, open source'},
+        
+        // Primary meta tags
+        {name: 'description', content: 'The open-source game server management panel designed to be fast, secure, and easy to use'},
+        {name: 'theme-color', content: '#0F52BA'},
+        
+        // Open Graph / Facebook
+        {property: 'og:title', content: 'PhoenixPanel'},
+        {property: 'og:description', content: 'The open-source game server management panel designed to be fast, secure, and easy to use'},
+        {property: 'og:url', content: 'https://phoenixpanel.io'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:image', content: 'https://phoenixpanel.io/img/phoenixpanel-social-card.jpg'},
+        {property: 'og:site_name', content: 'PhoenixPanel'},
+        
+        // Twitter
+        {name: 'twitter:card', content: 'summary_large_image'},
+        {name: 'twitter:site', content: '@phoenixpanel'},
+        {name: 'twitter:title', content: 'PhoenixPanel'},
+        {name: 'twitter:description', content: 'The open-source game server management panel designed to be fast, secure, and easy to use'},
+        {name: 'twitter:image', content: 'https://phoenixpanel.io/img/phoenixpanel-social-card.jpg'},
+      ],
     }),
 };
 
