@@ -4,18 +4,42 @@ sidebar_position: 1
 
 # Panel Installation
 
-This guide will walk you through the process of installing PhoenixPanel on your server.
+This guide provides an overview of installing PhoenixPanel. For OS-specific installation instructions, please select your operating system from the sidebar.
 
-## Supported Software
+## Supported Operating Systems
 
-PhoenixPanel has a few requirements that must be met before beginning the installation process.
+PhoenixPanel officially supports the following operating systems:
 
-| Software | Minimum Version | Recommended Version |
-|----------|-----------------|---------------------|
-| PHP      | 8.1.0           | 8.2+                |
-| MySQL    | 8.0.0           | 8.0+                |
-| PostgreSQL | 13.0.0        | 14.0+               |
-| Redis    | 6.0.0           | 7.0+                |
+| Operating System | Version | Status |
+|-----------------|---------|--------|
+| Ubuntu | 20.04 LTS | ✅ Fully Supported |
+| Ubuntu | 22.04 LTS | ✅ Fully Supported |
+| Debian | 11 (Bullseye) | ✅ Fully Supported |
+| Debian | 12 (Bookworm) | ✅ Fully Supported |
+| CentOS Stream | 8 | ✅ Fully Supported |
+| CentOS Stream | 9 | ✅ Fully Supported |
+| AlmaLinux | 8 | ✅ Fully Supported |
+| AlmaLinux | 9 | ✅ Fully Supported |
+| Rocky Linux | 8 | ✅ Fully Supported |
+| Rocky Linux | 9 | ✅ Fully Supported |
+
+## System Requirements
+
+Ensure your system meets these requirements before installing PhoenixPanel:
+
+| Component | Minimum | Recommended |
+|-----------|---------|------------|
+| CPU | 1 core | 2+ cores |
+| RAM | 2GB | 4GB+ |
+| Disk | 10GB | 20GB+ |
+| Network | 100Mbps | 1Gbps+ |
+| PHP | 8.1 | 8.2+ |
+| Database | MySQL 8.0 / MariaDB 10.5 | MySQL 8.0 |
+| Redis | 6.0 | 7.0+ |
+
+## Quick Installation Reference
+
+These are general steps for installing PhoenixPanel. For detailed, OS-specific instructions, please select your operating system from the sidebar.
 
 ## Dependency Installation
 

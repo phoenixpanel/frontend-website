@@ -1,0 +1,208 @@
+.ctaContainer {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 5px solid var(--ifm-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Hover effect */
+.ctaContainer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Type variations */
+.primary {
+  background-color: rgba(15, 82, 186, 0.05);
+  border-left-color: var(--ifm-color-primary);
+}
+
+.secondary {
+  background-color: rgba(255, 87, 34, 0.05);
+  border-left-color: var(--phoenix-secondary-color);
+}
+
+.success {
+  background-color: rgba(40, 167, 69, 0.05);
+  border-left-color: #28a745;
+}
+
+.warning {
+  background-color: rgba(255, 193, 7, 0.05);
+  border-left-color: #ffc107;
+}
+
+.info {
+  background-color: rgba(23, 162, 184, 0.05);
+  border-left-color: #17a2b8;
+}
+
+.danger {
+  background-color: rgba(220, 53, 69, 0.05);
+  border-left-color: #dc3545;
+}
+
+/* Dark mode styles */
+[data-theme='dark'] .primary {
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+[data-theme='dark'] .secondary {
+  background-color: rgba(255, 112, 67, 0.1);
+}
+
+[data-theme='dark'] .success {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+[data-theme='dark'] .warning {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+[data-theme='dark'] .info {
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+[data-theme='dark'] .danger {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Content styles */
+.ctaContent {
+  flex: 1;
+}
+
+.ctaTitle {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-content-secondary);
+}
+
+.ctaDescription {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-content);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Button styles */
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buttonSuccess {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: white;
+}
+
+.buttonSuccess:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.buttonWarning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.buttonWarning:hover {
+  background-color: #e0a800;
+  border-color: #d39e00;
+}
+
+.buttonInfo {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
+}
+
+.buttonInfo:hover {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.secondaryButton {
+  color: var(--ifm-color-content);
+  border-color: var(--ifm-color-content);
+}
+
+.secondaryButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ifm-color-content-secondary);
+}
+
+[data-theme='dark'] .secondaryButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Icon styles */
+.ctaIcon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+}
+
+.emojiIcon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+/* Alignment options */
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+/* Center-aligned CTAs have centered buttons */
+.align-center .ctaButtons {
+  justify-content: center;
+}
+
+.align-right .ctaButtons {
+  justify-content: flex-end;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ctaContainer {
+    flex-direction: column;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .ctaIcon {
+    margin-bottom: 1rem;
+  }
+  
+  .ctaButtons {
+    justify-content: center;
+  }
+  
+  /* Override alignment for mobile */
+  .align-left .ctaButtons,
+  .align-right .ctaButtons {
+    justify-content: center;
+  }
+}

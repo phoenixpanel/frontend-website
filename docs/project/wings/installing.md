@@ -6,27 +6,46 @@ sidebar_position: 1
 
 Wings is the server control plane for PhoenixPanel. It handles all the game server logic, runs the Docker containers, and communicates with your main PhoenixPanel installation.
 
-## Supported Systems
+This page provides an overview of Wings installation. For OS-specific instructions, please select your operating system from the sidebar.
 
-Wings is supported on systems meeting the following requirements:
+## Supported Operating Systems
 
-* x86_64 CPU architecture
-* Linux kernel 5.8 or higher
-* Docker installed and running
-* At least 1GB of RAM
-* Sufficient disk space for game servers
-* `curl | bash` command strategy for installation
-* systemd for managing the Wings process
+PhoenixPanel Wings officially supports the following operating systems:
 
-:::warning Supported Operating Systems
-PhoenixPanel Wings is only officially supported on:
-* Ubuntu 20.04
-* Ubuntu 22.04
-* Debian 11
-* Debian 12
-* CentOS Stream 8
-* CentOS Stream 9
+| Operating System | Version | Status |
+|-----------------|---------|--------|
+| Ubuntu | 20.04 LTS | ✅ Fully Supported |
+| Ubuntu | 22.04 LTS | ✅ Fully Supported |
+| Debian | 11 (Bullseye) | ✅ Fully Supported |
+| Debian | 12 (Bookworm) | ✅ Fully Supported |
+| CentOS Stream | 8 | ✅ Fully Supported |
+| CentOS Stream | 9 | ✅ Fully Supported |
+| AlmaLinux | 8 | ✅ Fully Supported |
+| AlmaLinux | 9 | ✅ Fully Supported |
+| Rocky Linux | 8 | ✅ Fully Supported |
+| Rocky Linux | 9 | ✅ Fully Supported |
+
+## System Requirements
+
+Ensure your system meets these requirements before installing Wings:
+
+| Component | Minimum | Recommended |
+|-----------|---------|------------|
+| CPU | 2 cores | 4+ cores |
+| RAM | 4GB | 8GB+ |
+| Disk | 30GB | 50GB+ |
+| Network | 100Mbps | 1Gbps+ |
+| Architecture | x86_64 | x86_64 |
+| Kernel | Linux 5.8+ | Latest stable |
+| Docker | Latest | Latest |
+
+:::caution Hardware Virtualization
+Wings requires virtualization to be enabled in your BIOS/UEFI settings. This is necessary for Docker to run efficiently.
 :::
+
+## Quick Installation Reference
+
+These are general steps for installing Wings. For detailed, OS-specific instructions, please select your operating system from the sidebar.
 
 ## System Dependencies
 

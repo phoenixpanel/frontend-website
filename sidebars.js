@@ -23,8 +23,49 @@ const sidebars = {
       label: 'Getting Started',
       collapsed: false,
       items: [
-        'project/panel/installation',
-        'project/wings/installing',
+        {
+          type: 'category',
+          label: 'Panel',
+          items: [
+            'project/panel/installation',
+            {
+              type: 'category',
+              label: 'OS-Specific Installation',
+              collapsed: true,
+              items: [
+                'project/panel/ubuntu',
+                'project/panel/debian',
+                'project/panel/centos',
+              ]
+            },
+            'project/panel/configuration',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Wings',
+          items: [
+            'project/wings/installing',
+            {
+              type: 'category',
+              label: 'OS-Specific Installation',
+              collapsed: true,
+              items: [
+                'project/wings/ubuntu',
+                'project/wings/debian',
+                'project/wings/centos',
+              ]
+            },
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Servers',
+          items: [
+            'project/servers/creation',
+          ],
+        },
+        'project/troubleshooting',
       ],
     },
     {
@@ -36,6 +77,7 @@ const sidebars = {
         'api/users',
         'api/nodes',
         'api/libraries',
+        'api/services',
       ],
     },
     {
@@ -43,6 +85,9 @@ const sidebars = {
       label: 'Server Management',
       items: [
         'servers/setup',
+        'servers/backups',
+        'servers/monitoring',
+        'servers/mods',
         'users',
       ],
     },

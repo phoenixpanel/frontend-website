@@ -1,0 +1,116 @@
+.codeExamplesContainer {
+  margin: 2rem 0;
+}
+
+.codeExamplesTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+}
+
+.codeExamplesDescription {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.codeNote {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(15, 82, 186, 0.05);
+  border-left: 4px solid var(--ifm-color-primary);
+  border-radius: 0 4px 4px 0;
+  font-size: 0.875rem;
+}
+
+[data-theme='dark'] .codeNote {
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+.codeNote strong {
+  color: var(--ifm-color-primary);
+}
+
+/* Code comparison styles */
+.codeComparisonContainer {
+  margin: 2.5rem 0;
+}
+
+.comparisonWrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.comparisonColumn {
+  flex: 1;
+  min-width: 0;
+}
+
+.comparisonHeader {
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.comparisonLabel {
+  padding: 0.25rem 1rem;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+.beforeLabel {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.afterLabel {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+[data-theme='dark'] .beforeLabel {
+  background-color: rgba(220, 53, 69, 0.15);
+  border-color: rgba(220, 53, 69, 0.3);
+}
+
+[data-theme='dark'] .afterLabel {
+  background-color: rgba(40, 167, 69, 0.15);
+  border-color: rgba(40, 167, 69, 0.3);
+}
+
+.comparisonDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparisonArrow {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content-secondary);
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .comparisonWrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .comparisonDivider {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+}

@@ -1,0 +1,305 @@
+.navigationGuide {
+  margin: 3rem 0 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.navLink {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+  transition: all 0.2s ease;
+  flex: 1;
+  max-width: 48%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.navLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  border-color: var(--ifm-color-primary-light);
+}
+
+.prevLink {
+  text-align: left;
+}
+
+.nextLink {
+  text-align: right;
+}
+
+.navDirection {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.navTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ifm-color-primary);
+}
+
+.relatedSection {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--ifm-color-emphasis-200);
+}
+
+.relatedTitle {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.relatedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.relatedItem {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ifm-background-surface-color);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  transition: all 0.2s ease;
+}
+
+.relatedItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--ifm-color-primary-light);
+}
+
+.relatedLink {
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  text-decoration: none;
+}
+
+.relatedLink:hover {
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+}
+
+.relatedDescription {
+  padding: 0 1rem 1rem;
+  font-size: 0.875rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+/* Guide Map Styles */
+.guideMap {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.guideTitle {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.guideSteps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.guideStep {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background-color: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex: 1;
+  min-width: 200px;
+  max-width: 250px;
+}
+
+.guideStep:hover {
+  text-decoration: none;
+  background-color: var(--ifm-hover-overlay);
+  transform: translateY(-2px);
+}
+
+.guideStepActive {
+  background-color: var(--ifm-color-primary-lightest);
+  border-color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .guideStepActive {
+  background-color: rgba(26, 115, 232, 0.15);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.stepNumber {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.stepDescription {
+  font-size: 0.85rem;
+  color: var(--ifm-color-content-secondary);
+}
+
+.connector {
+  font-size: 1.5rem;
+  color: var(--ifm-color-emphasis-500);
+  margin: 0 0.25rem;
+  display: none;
+}
+
+/* Progress Tracker styles */
+.progressTracker {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.progressTitle {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.progressPercentage {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 8px;
+  background-color: var(--ifm-color-emphasis-200);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: var(--ifm-color-primary);
+  transition: width 0.5s ease;
+}
+
+.progressSteps {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.progressStep {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background-color: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+  transition: all 0.3s ease;
+}
+
+.progressStep.completed {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.progressStep.current {
+  background-color: white;
+  color: var(--ifm-color-primary);
+  border: 2px solid var(--ifm-color-primary);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .connector {
+    display: block;
+  }
+  
+  .navLink {
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 767px) {
+  .navLinks {
+    flex-direction: column;
+  }
+  
+  .navLink {
+    max-width: 100%;
+  }
+  
+  .guideSteps {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .guideStep {
+    max-width: 100%;
+  }
+}

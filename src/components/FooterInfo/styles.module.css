@@ -1,0 +1,65 @@
+/* Footer info styles */
+.footerInfo {
+  display: flex;
+  justify-content: flex-end; /* Align to the right */
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 100%; /* Full width */
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footerInfoContainer {
+  display: flex;
+  justify-content: flex-end; /* Align content to the right */
+  gap: 1rem; /* Space between items */
+  padding: 0 var(--ifm-spacing-horizontal);
+}
+
+.versionInfo,
+.loadTime {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--ifm-color-emphasis-200);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle hover effect */
+.versionInfo:hover, 
+.loadTime:hover {
+  background-color: var(--ifm-color-emphasis-300);
+  cursor: default;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .versionInfo,
+[data-theme='dark'] .loadTime {
+  background-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .versionInfo:hover,
+[data-theme='dark'] .loadTime:hover {
+  background-color: var(--ifm-color-emphasis-400);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footerInfoContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

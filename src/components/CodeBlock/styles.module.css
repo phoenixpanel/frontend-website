@@ -1,0 +1,179 @@
+.codeBlockContainer {
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.codeBlockContainer:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Light and dark mode styles */
+.light {
+  background-color: #f6f8fa;
+  border: 1px solid #e1e4e8;
+}
+
+.dark {
+  background-color: #1e1e1e;
+  border: 1px solid #333333;
+}
+
+.codeBlockTitle {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+  border-left: 4px solid #0f52ba;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .codeBlockTitle {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.codeBlockLanguage {
+  display: inline-block;
+  padding: 2px 5px;
+  margin-right: 10px;
+  border-radius: 3px;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.codeBlockFileName {
+  flex: 1;
+  color: var(--ifm-color-content);
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copyButton {
+  background: none;
+  border: none;
+  color: var(--ifm-color-content-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.copyButton:hover {
+  color: var(--ifm-color-primary);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark .copyButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.codeBlockContent {
+  padding: 0;
+  position: relative;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.codeBlock {
+  margin: 0 !important;
+  padding: 1rem !important;
+  font-family: var(--ifm-font-family-monospace) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+/* Line numbers */
+.withLineNumbers {
+  counter-reset: line;
+}
+
+.withLineNumbers .codeBlock {
+  padding-left: 3.5rem !important;
+}
+
+.withLineNumbers .codeBlock::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .withLineNumbers .codeBlock::before {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom syntax highlighting enhancements */
+.codeBlock :global(.comment),
+.codeBlock :global(.prolog),
+.codeBlock :global(.doctype),
+.codeBlock :global(.cdata) {
+  color: #8a9199;
+  font-style: italic;
+}
+
+.codeBlock :global(.namespace) {
+  color: #b2ccd6;
+}
+
+.codeBlock :global(.string),
+.codeBlock :global(.attr-value) {
+  color: #c3e88d;
+}
+
+.codeBlock :global(.punctuation),
+.codeBlock :global(.operator) {
+  color: #89ddff;
+}
+
+.codeBlock :global(.keyword),
+.codeBlock :global(.selector),
+.codeBlock :global(.tag) {
+  color: #f07178;
+}
+
+.codeBlock :global(.boolean),
+.codeBlock :global(.number) {
+  color: #ff9cac;
+}
+
+.codeBlock :global(.property),
+.codeBlock :global(.constant),
+.codeBlock :global(.symbol),
+.codeBlock :global(.attr-name) {
+  color: #ffcb6b;
+}
+
+.codeBlock :global(.entity),
+.codeBlock :global(.url),
+.codeBlock :global(.function) {
+  color: #82aaff;
+}
+
+/* Animation for copied state */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.copyButton svg {
+  animation: fadeIn 0.2s ease-in-out;
+}

@@ -1,0 +1,144 @@
+/* Terminal component styling */
+.terminal-wrapper {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #1e1e1e;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  padding: 0 0.5rem;
+  background-color: #323233;
+  border-bottom: 1px solid #444;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminal-close {
+  background-color: #ff5f56;
+}
+
+.terminal-minimize {
+  background-color: #ffbd2e;
+}
+
+.terminal-maximize {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #ddd;
+  flex: 1;
+  text-align: center;
+}
+
+.terminal {
+  margin: 0;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  color: #f8f8f8;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.terminal-command {
+  display: flex;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal-prompt {
+  color: #5af78e;
+  margin-right: 0.75rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.terminal-output {
+  color: #c2c2c2;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Make the terminal look different in light mode */
+[data-theme='light'] .terminal-wrapper {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a slight animation for interactive feel */
+.terminal-command {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style for command typing effect */
+.terminal-typing::after {
+  content: '█';
+  animation: blink 1s infinite;
+  font-weight: normal;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Syntax highlighting for recognized commands */
+.terminal-command .command-git { color: #f92672; }
+.terminal-command .command-npm { color: #a6e22e; }
+.terminal-command .command-php { color: #66d9ef; }
+.terminal-command .command-cd { color: #fd971f; }
+.terminal-command .command-docker { color: #2496ed; }
+.terminal-command .command-sudo { color: #e83e8c; }
+
+/* Path styling */
+.terminal-command .path {
+  color: #e6db74; 
+}
+
+/* Error styling */
+.terminal-output.error {
+  color: #ff5555;
+}
+
+/* Success styling */
+.terminal-output.success {
+  color: #50fa7b;
+}
+
+/* Warning styling */
+.terminal-output.warning {
+  color: #ffb86c;
+}
+
+/* Info styling */
+.terminal-output.info {
+  color: #8be9fd;
+}

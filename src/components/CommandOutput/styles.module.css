@@ -1,0 +1,183 @@
+.outputContainer {
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f6f8fa;
+  transition: all 0.2s ease-in-out;
+  border-left: 4px solid #8c8c8c;
+}
+
+[data-theme='dark'] .outputContainer {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #666;
+}
+
+/* Specific type styling */
+.success {
+  border-left-color: #28a745;
+}
+
+.error {
+  border-left-color: #dc3545;
+}
+
+.warning {
+  border-left-color: #ffc107;
+}
+
+.info {
+  border-left-color: #17a2b8;
+}
+
+.outputHeader {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .outputHeader {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.outputTitle {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+/* Type-specific header styling */
+.success .outputHeader {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.error .outputHeader {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.warning .outputHeader {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.info .outputHeader {
+  background-color: rgba(23, 162, 184, 0.1);
+}
+
+[data-theme='dark'] .success .outputHeader {
+  background-color: rgba(40, 167, 69, 0.2);
+}
+
+[data-theme='dark'] .error .outputHeader {
+  background-color: rgba(220, 53, 69, 0.2);
+}
+
+[data-theme='dark'] .warning .outputHeader {
+  background-color: rgba(255, 193, 7, 0.2);
+}
+
+[data-theme='dark'] .info .outputHeader {
+  background-color: rgba(23, 162, 184, 0.2);
+}
+
+.copyButton {
+  background: none;
+  border: none;
+  color: var(--ifm-color-content-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copyButton:hover {
+  color: var(--ifm-color-primary);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .copyButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.outputContent {
+  padding: 12px 16px;
+  overflow-x: auto;
+  max-height: 400px;
+}
+
+.output {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+[data-theme='dark'] .output {
+  color: #e0e0e0;
+}
+
+/* Type-specific output styling */
+.success .output {
+  color: #155724;
+}
+
+.error .output {
+  color: #721c24;
+}
+
+.warning .output {
+  color: #856404;
+}
+
+.info .output {
+  color: #0c5460;
+}
+
+[data-theme='dark'] .success .output {
+  color: #8fd19e;
+}
+
+[data-theme='dark'] .error .output {
+  color: #f5c6cb;
+}
+
+[data-theme='dark'] .warning .output {
+  color: #ffecb5;
+}
+
+[data-theme='dark'] .info .output {
+  color: #bee5eb;
+}
+
+/* Hover state */
+.outputContainer:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] .outputContainer:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Small screen adaptations */
+@media (max-width: 768px) {
+  .outputContainer {
+    margin: 1rem 0;
+  }
+  
+  .outputContent {
+    padding: 8px 12px;
+  }
+  
+  .output {
+    font-size: 0.8rem;
+  }
+}

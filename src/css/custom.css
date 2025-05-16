@@ -21,6 +21,8 @@
   --phoenix-text-color: #ffffff;
   --phoenix-secondary-color: #ff5722;
   --phoenix-light-background: #f8f9fa;
+  --phoenix-accent-color-1: #8bc34a;
+  --phoenix-accent-color-2: #9c27b0;
   
   /* Typography improvements */
   --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -49,13 +51,17 @@
   --phoenix-text-color: #ffffff;
   --phoenix-secondary-color: #ff7043;
   --phoenix-light-background: #1a1d23;
+  --phoenix-accent-color-1: #aed581;
+  --phoenix-accent-color-2: #ce93d8;
   
   /* UI Enhancements for dark mode */
   --phoenix-card-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Font import */
+/* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import './terminal.css';
 
 /* Additional global styles */
 html {
@@ -219,9 +225,91 @@ body {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
-/* Code blocks */
+/* Code blocks and syntax highlighting improvements */
 pre {
   border-radius: 10px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* Enhanced inline code style */
+:not(pre) > code {
+  background-color: rgba(15, 82, 186, 0.1);
+  border: 1px solid rgba(15, 82, 186, 0.2);
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
+  font-weight: 500;
+  color: var(--ifm-color-primary-darker);
+  transition: background-color 0.2s ease;
+}
+
+[data-theme='dark'] :not(pre) > code {
+  background-color: rgba(26, 115, 232, 0.15);
+  border-color: rgba(26, 115, 232, 0.25);
+  color: var(--ifm-color-primary-lighter);
+}
+
+:not(pre) > code:hover {
+  background-color: rgba(15, 82, 186, 0.15);
+}
+
+[data-theme='dark'] :not(pre) > code:hover {
+  background-color: rgba(26, 115, 232, 0.2);
+}
+
+/* Code highlighting enhancements */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #8a9199;
+  font-style: italic;
+}
+
+.token.namespace {
+  color: #b2ccd6;
+}
+
+.token.string,
+.token.attr-value {
+  color: #92d192;
+}
+
+.token.punctuation,
+.token.operator {
+  color: #89ddff;
+}
+
+.token.keyword,
+.token.selector,
+.token.tag {
+  color: #f07178;
+}
+
+.token.boolean,
+.token.number {
+  color: #ff9cac;
+}
+
+.token.property,
+.token.constant,
+.token.symbol,
+.token.attr-name {
+  color: #ffcb6b;
+}
+
+.token.entity,
+.token.url,
+.token.function {
+  color: #82aaff;
+}
+
+/* Remove the blue selection background from code blocks */
+.theme-code-block:focus-within {
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(15, 82, 186, 0.3) !important;
 }
 
 /* Table styling */

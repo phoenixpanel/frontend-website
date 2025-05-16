@@ -1,0 +1,26 @@
+.container {
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.containerWithBorder {
+  margin: 2rem 0;
+  padding: 2rem 0 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.guideMapTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--ifm-color-primary);
+}
+
+.progressTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--ifm-color-content-secondary);
+}

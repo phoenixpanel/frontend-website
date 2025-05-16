@@ -68,6 +68,18 @@ const config = {
     ],
   ],
 
+  // Add Google Analytics configuration
+  scripts: [
+    {
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX', // Replace with your actual Google Analytics ID
+      async: true,
+    },
+    {
+      src: '/js/analytics.js',
+      async: true,
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({

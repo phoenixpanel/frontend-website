@@ -7,6 +7,14 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import styles from './index.module.css';
 
+// Import homepage data
+import { 
+  headerContent, 
+  statisticsContent, 
+  ctaContent,
+  metaContent
+} from '@site/src/data/homepage';
+
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -21,24 +29,28 @@ function HomepageHeader() {
               <span className={styles.taglineHighlight}>{siteConfig.tagline}</span>
             </p>
             <p className={styles.heroDescription}>
-              Take control of your game servers with our modern, secure, and powerful management panel
+              {headerContent.description}
             </p>
             <div className={styles.buttons}>
               <Link
                 className="button button--primary button--lg"
-                to="/docs/intro">
-                Get Started
+                to={headerContent.primaryButton.url}>
+                {headerContent.primaryButton.text}
               </Link>
               <Link
                 className="button button--secondary button--lg"
-                to="/features">
-                View Features
+                to={headerContent.secondaryButton.url}>
+                {headerContent.secondaryButton.text}
               </Link>
             </div>
           </div>
           <div className={styles.heroImage}>
             <div className={styles.heroImageWrapper}>
-              <img src="/img/logo.svg" alt="PhoenixPanel Interface" className={styles.floatingLogo} />
+              <img 
+                src={headerContent.heroImage.src} 
+                alt={headerContent.heroImage.alt} 
+                className={styles.floatingLogo} 
+              />
               <div className={styles.glowEffect}></div>
             </div>
           </div>
@@ -53,30 +65,17 @@ function HomepageStatistics() {
     <section className={styles.statistics}>
       <div className="container">
         <div className={styles.statsHeader}>
-          <h2>Trusted by Gamers Worldwide</h2>
-          <p>Join thousands of server administrators using PhoenixPanel</p>
+          <h2>{statisticsContent.sectionTitle}</h2>
+          <p>{statisticsContent.sectionSubtitle}</p>
         </div>
         <div className={styles.statsContainer}>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>10+</div>
-            <h3>Servers Managed</h3>
-            <p>Game servers running smoothly with PhoenixPanel</p>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>1K+</div>
-            <h3>Community Members</h3>
-            <p>Active users in our growing community</p>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>2025</div>
-            <h3>Founded this year!</h3>
-            <p>PhoenixPanel was founded in 2025</p>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>5+</div>
-            <h3>Game Types</h3>
-            <p>Supporting all popular game server configurations</p>
-          </div>
+          {statisticsContent.stats.map((stat, index) => (
+            <div key={index} className={styles.statItem}>
+              <div className={styles.statNumber}>{stat.number}</div>
+              <h3>{stat.label}</h3>
+              <p>{stat.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -90,23 +89,23 @@ function CallToAction() {
       <div className="container">
         <div className={styles.ctaContent}>
           <div className={styles.ctaText}>
-            <h2 className={styles.ctaHeading}>Ready to take control of your game servers?</h2>
-            <p className={styles.ctaSubheading}>PhoenixPanel makes server management simple, secure, and powerful.</p>
+            <h2 className={styles.ctaHeading}>{ctaContent.heading}</h2>
+            <p className={styles.ctaSubheading}>{ctaContent.subheading}</p>
             <ul className={styles.ctaBenefits}>
-              <li><span>✓</span> Get started in minutes with simple installation</li>
-              <li><span>✓</span> Control all your game servers from one dashboard</li>
-              <li><span>✓</span> Free and open-source forever</li>
+              {ctaContent.benefits.map((benefit, index) => (
+                <li key={index}><span>✓</span> {benefit}</li>
+              ))}
             </ul>
             <div className={styles.ctaButtons}>
               <Link
                 className="button button--secondary button--lg"
-                to="/docs/project/panel/installation">
-                Install PhoenixPanel
+                to={ctaContent.primaryButton.url}>
+                {ctaContent.primaryButton.text}
               </Link>
               <Link
                 className="button button--primary button--lg"
-                href="https://github.com/phoenixpanel/panel">
-                View on GitHub
+                to={ctaContent.secondaryButton.url}>
+                {ctaContent.secondaryButton.text}
               </Link>
             </div>
           </div>
@@ -135,8 +134,8 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title} - ${siteConfig.tagline}`}
-      description="The open-source game server management panel designed to be fast, secure, and easy to use."
-      image="img/phoenixpanel-social-card.jpg">
+      description={metaContent.description}
+      image={metaContent.image}>
       <HomepageHeader />
       <main>
         <HomepageStatistics />

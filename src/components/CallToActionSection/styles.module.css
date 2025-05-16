@@ -1,0 +1,10 @@
+.container {
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.containerWithBorder {
+  margin: 2rem 0;
+  padding: 2rem 0 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
