@@ -1,0 +1,412 @@
+# PHOENIXPANEL WEBSITE CODE STRUCTURE AND FUNCTIONALITY
+
+This document provides a comprehensive explanation of the PhoenixPanel website codebase, detailing how the code works, the project structure, and how various components interact.
+
+## 1. PROJECT OVERVIEW
+
+PhoenixPanel is an open-source game server management panel designed for hosting providers, communities, and individuals. The website is built using Docusaurus, a modern static website generator focused on creating documentation websites with features for blogs, pages, and customizable UI components.
+
+### 1.1 Key Technologies
+
+- **Docusaurus 3.7.0**: Main framework for generating the static website
+- **React 19.0.0**: Used for building the UI components
+- **Node.js**: Required for building and serving the website (v18.0+)
+- **CSS Modules**: Used for component-specific styling
+
+### 1.2 Project Purpose
+
+The website serves as both documentation and marketing for PhoenixPanel, which is a game server management platform. The panel itself (separate from this website) consists of:
+- A web interface (Panel)
+- A server-side daemon (Wings) that interacts with Docker containers
+
+## 2. PROJECT STRUCTURE
+
+### 2.1 Root Directory Files
+
+- **docusaurus.config.js**: Main configuration file that defines site metadata, navbar, footer, and various Docusaurus settings
+- **package.json**: Defines dependencies and scripts for the project
+- **sidebars.js**: Configures the document sidebar structure and organization
+
+### 2.2 Key Directories
+
+- **/blog/**: Contains blog posts in Markdown format
+- **/docs/**: Documentation content organized by sections
+- **/src/**: Custom React components, pages, and data
+  - **/src/components/**: Reusable UI components
+  - **/src/css/**: Global CSS files
+  - **/src/data/**: Data files for various sections of the website
+  - **/src/pages/**: Custom pages outside the documentation
+  - **/src/theme/**: Custom theme components overriding Docusaurus defaults
+- **/static/**: Static assets like images and client-side scripts
+
+## 3. CONFIGURATION
+
+### 3.1 Docusaurus Configuration
+
+The `docusaurus.config.js` file defines the core site settings:
+
+- Site metadata (title, tagline, favicon)
+- URL configuration
+- Internationalization settings (currently English only)
+- Theme configuration including navbar and footer links
+- Custom CSS and scripts
+- Documentation and blog configuration
+- SEO settings
+
+### 3.2 Sidebar Configuration
+
+The `sidebars.js` file organizes the documentation into structured sections:
+- Getting Started (Panel and Wings installation)
+- API Reference
+- Server Management
+- Technical Guides
+- Best Practices
+
+## 4. CONTENT STRUCTURE
+
+### 4.1 Documentation
+
+The `/docs/` directory contains multiple categories of Markdown files:
+- Introduction and getting started guides
+- Installation instructions for different operating systems
+- API documentation
+- Technical guides and best practices
+- Server management guides
+
+Documentation files use front matter (YAML at the top) to define metadata like sidebar position.
+
+### 4.2 Blog
+
+The `/blog/` directory contains blog posts in Markdown/MDX format with front matter for metadata like author, date, and tags. Blog authors are defined in `blog/authors.yml`.
+
+### 4.3 Custom Pages
+
+Custom pages are defined in `/src/pages/` and include:
+- `index.js`: The homepage
+- `api.js`: API overview page
+- `features.js`: Features showcase page
+
+## 5. COMPONENT ARCHITECTURE
+
+### 5.1 Data Management
+
+The website uses separate data files in `/src/data/` to manage content:
+- `homepage.js`: Contains content for the homepage sections
+- `api.js`: API page content
+- `components.js`: Information about PhoenixPanel components
+- `features.js`: Content for the features page
+- `metadata.js`: SEO and general metadata
+
+This approach separates content from presentation, making it easier to update the website content without changing component code.
+
+### 5.2 Key Components
+
+1. **Homepage Components**:
+   - `HomepageHeader`: Hero section with main call-to-action
+   - `HomepageFeatures`: Features showcase in a grid layout
+   - `HomepageStatistics`: Stats display section
+   - `CallToAction`: Bottom CTA section
+
+2. **Navigation Components**:
+   - `NavigationGuide`: Helps users navigate the documentation
+   - `NavigationSection`: Structured navigation sections
+
+3. **UI Components**:
+   - `CodeBlock`: Custom code display with syntax highlighting
+   - `CodeExamples`: Shows code examples with tabs
+   - `CommandOutput`: Displays terminal command outputs
+   - `FeedbackWidget`: Collects user feedback
+
+4. **Theme Customizations**:
+   - Custom footer implementation in `/src/theme/Footer/`
+   - Custom DocItem footer for documentation pages
+
+### 5.3 Styling
+
+Styling is implemented using CSS modules, with each component having its own `.module.css` file for scoped styling. Global styles are defined in `/src/css/custom.css` and `/src/css/terminal.css`.
+
+## 6. RENDERING AND INTERACTIVITY
+
+### 6.1 Page Rendering
+
+Pages are built using React components that import content from the data files. For example:
+
+```javascript
+// Homepage rendering
+export default function Home() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <Layout>
+      <HomepageHeader />
+      <main>
+        <HomepageStatistics />
+        <HomepageFeatures />
+        <CallToAction />
+      </main>
+    </Layout>
+  );
+}
+```
+
+This structure allows for a clear separation of concerns and makes the codebase more maintainable.
+
+### 6.2 Analytics
+
+The site includes Google Analytics integration via:
+- Google Analytics script in the header
+- Custom analytics.js in the `/static/js/` directory
+
+## 7. DOCUMENTATION CONTENT
+
+### 7.1 API Documentation
+
+The API documentation explains how to interact with PhoenixPanel's RESTful API:
+- Authentication using API keys
+- Request/response formats
+- Error handling
+- Pagination
+- Rate limiting
+- Endpoints for servers, users, nodes, and services
+
+### 7.2 Installation Guides
+
+Documentation includes detailed installation instructions for PhoenixPanel:
+- Prerequisites and system requirements
+- Step-by-step installation process
+- OS-specific guides for Ubuntu, Debian, and CentOS
+- Configuration options and customization
+
+### 7.3 Server Management
+
+Guides for managing game servers including:
+- Server setup and configuration
+- Backup management
+- Server monitoring
+- Mod installation and management
+
+## 8. WEBSITE WORKFLOW
+
+### 8.1 Build Process
+
+The website is built using these npm scripts defined in package.json:
+- `npm start`: Development server with hot reloading
+- `npm run build`: Production build
+- `npm run serve`: Local preview of production build
+
+### 8.2 Deployment
+
+The site is configured for deployment to:
+- Standard web hosting via the `/build` directory
+- GitHub Pages (configured in docusaurus.config.js)
+
+### 8.3 Translation Workflow
+
+The site supports internationalization but is currently only in English. Translation workflows can be managed with:
+- `npm run write-translations`
+- `npm run write-heading-ids`
+
+## 9. KEY FEATURES OF THE WEBSITE
+
+### 9.1 Documentation Features
+
+- Organized sidebar navigation
+- Code syntax highlighting
+- Search functionality
+- Next/previous navigation between related pages
+- Edit links that point to GitHub
+
+### 9.2 UI Features
+
+- Dark/light theme toggle
+- Responsive design for mobile and desktop
+- Custom components for improved documentation experience
+- Interactive UI elements like the feedback widget
+
+### 9.3 Performance Optimization
+
+The website is optimized for performance with:
+- Static site generation for fast load times
+- CSS optimization
+- Responsive images
+- Modern browser compatibility
+
+## 10. EXTENDING THE WEBSITE
+
+### 10.1 Adding New Documentation
+
+New documentation can be added by:
+1. Creating new Markdown files in the appropriate `/docs/` subdirectory
+2. Adding front matter with sidebar_position
+3. Updating sidebars.js if creating new categories
+
+### 10.2 Creating New Components
+
+New components should be added to `/src/components/` following the established pattern:
+1. Create a directory with the component name
+2. Add an index.js with the React component
+3. Create a styles.module.css for component-specific styles
+
+### 10.3 Modifying Site Configuration
+
+Site-wide changes can be made in:
+- docusaurus.config.js for structural changes
+- /src/css/custom.css for global styling
+- /src/data/ files for content updates
+
+## CONCLUSION
+
+The PhoenixPanel website is built with a modern, maintainable architecture that separates content from presentation. It leverages Docusaurus and React to create a documentation-focused website with custom pages and components. The modular structure makes it easy to update content, add new features, and maintain the codebase over time.
+
+This website serves as both marketing and documentation for the PhoenixPanel game server management platform, providing users with comprehensive guides, API documentation, and information about the project.
+
+## 11. ASSET HANDLING AND LOGO CACHING ISSUES
+
+### 11.1 Static Asset Management
+
+Static assets like images (including logos) are stored in the `/static/` directory and are copied directly to the build output during the build process. The site has two logo files:
+- `logo.svg` - The main logo referenced in the configuration
+- `phoenixpanel-logo.svg` - An alternative logo file
+
+### 11.2 Logo Caching Issues
+
+When trying to replace the logo, users may encounter an issue where the browser continues to display the old logo despite updates. This can happen for several reasons:
+
+1. **Browser Caching**: Browsers aggressively cache static assets like logos for performance. The browser might be using a cached version rather than fetching the new one.
+
+2. **Build Process**: Docusaurus may not be generating unique file hashes for changed assets in some configurations. When the logo file changes but keeps the same name, the browser might still use the cached version.
+
+3. **Service Worker Caching**: If the website previously used a service worker (though none is currently configured), it might still be caching assets in some browsers.
+
+### 11.3 Fixing Logo Caching Issues
+
+To resolve logo caching issues:
+
+1. **Force Browser Cache Refresh**:
+   - Use hard refresh (Ctrl+F5 or Cmd+Shift+R)
+   - Clear browser cache completely
+   - Use incognito/private browsing mode to test changes
+
+2. **Change the Logo Filename**:
+   - Instead of replacing `logo.svg`, use a new filename like `logo-v2.svg` and update references in:
+     - `docusaurus.config.js` (line 97)
+     - `src/data/homepage.js` (line 22)
+
+3. **Add Cache-Busting Query Parameter**:
+   - Modify logo references to include a version: `logo.svg?v=2`
+
+4. **Configure Proper Cache Headers**:
+   - If deploying to a web server, configure proper cache control headers for static assets
+
+5. **Verify Build Process**:
+   - Ensure the build process (`npm run build`) is including the updated logo
+   - Check the build output directory to confirm the new logo is present
+
+### 11.4 Using phoenixpanel-logo.svg Instead of logo.svg
+
+To specifically use the existing `phoenixpanel-logo.svg` file instead of the default `logo.svg`:
+
+1. **Update the Configuration Files**:
+   - In `docusaurus.config.js` around line 97, change:
+     ```javascript
+     logo: {
+       alt: 'PhoenixPanel Logo',
+       src: 'img/logo.svg',
+     },
+     ```
+     to:
+     ```javascript
+     logo: {
+       alt: 'PhoenixPanel Logo',
+       src: 'img/phoenixpanel-logo.svg',
+     },
+     ```
+
+   - In `src/data/homepage.js` around line 22, change:
+     ```javascript
+     heroImage: {
+       src: '/img/logo.svg',
+       alt: 'PhoenixPanel Interface',
+     }
+     ```
+     to:
+     ```javascript
+     heroImage: {
+       src: '/img/phoenixpanel-logo.svg',
+       alt: 'PhoenixPanel Interface',
+     }
+     ```
+
+2. **Clear Browser Cache**:
+   - After making these changes, be sure to:
+     - Rebuild the site with `npm run build`
+     - Clear your browser cache completely
+     - Or perform a hard refresh (Ctrl+F5 or Cmd+Shift+R)
+
+3. **Verify the Changes**:
+   - Inspect the element in your browser to confirm it's loading the correct logo file
+   - Check the image src attribute matches `/img/phoenixpanel-logo.svg`
+
+This approach ensures that all references to the logo are updated to use the phoenixpanel-logo.svg file instead.
+
+### 11.5 Advanced Logo Troubleshooting
+
+If changing the logo references doesn't work, here are more aggressive troubleshooting steps:
+
+1. **Search for All Logo References**:
+   - There may be additional references to logo.svg in the codebase. Use a project-wide search for "logo.svg" to find all references:
+     ```
+     grep -r "logo.svg" --include="*.js" --include="*.css" --include="*.html" .
+     ```
+   - Update ALL references you find to phoenixpanel-logo.svg
+
+2. **Replace the Actual File**:
+   - Instead of changing references, you can replace the content of logo.svg with phoenixpanel-logo.svg:
+     ```
+     cp static/img/phoenixpanel-logo.svg static/img/logo.svg
+     ```
+   - This keeps all existing references intact but changes the actual logo
+
+3. **Check Build Process and Clear Cache Directories**:
+   - Remove the build cache completely:
+     ```
+     npm run clear
+     ```
+   - Also remove the .cache directory if it exists:
+     ```
+     rm -rf .cache
+     ```
+   - Then rebuild:
+     ```
+     npm run build
+     ```
+
+4. **Check for Progressive Web App Features**:
+   - Look for service worker registration in the codebase
+   - If present, try unregistering the service worker in your browser's developer tools
+
+5. **Additional Browser Troubleshooting**:
+   - Try a different browser entirely
+   - Use incognito/private window mode
+   - Inspect the network tab in developer tools to see which logo file is actually being requested
+   - Check if there are any redirects happening for the logo file
+
+6. **Check for CDN or Reverse Proxy Caching**:
+   - If your site is behind a CDN (like Cloudflare) or reverse proxy, it might be caching the logo
+   - Check for cache settings in your hosting configuration
+   - Purge CDN caches if applicable
+
+7. **Add Version Query Parameter Directly to File Reference**:
+   - Update the logo references to include a query parameter with the current timestamp:
+     ```javascript
+     logo: {
+       alt: 'PhoenixPanel Logo',
+       src: 'img/phoenixpanel-logo.svg?v=' + new Date().getTime(),
+     },
+     ```
+
+8. **Verify Image Path in Build Output**:
+   - After building, check the actual HTML output in the build directory
+   - Verify that the correct image path is being generated
+   - Look for any path rewriting that might be occurring
+
+These more aggressive approaches should address even stubborn caching issues.

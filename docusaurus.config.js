@@ -94,7 +94,7 @@ const config = {
         title: 'PhoenixPanel',
         logo: {
           alt: 'PhoenixPanel Logo',
-          src: 'img/logo.svg',
+          src: 'img/phoenixpanel-logo.svg',
         },
         items: [
           {

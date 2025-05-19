@@ -19,7 +19,7 @@ export const headerContent = {
     url: '/features',
   },
   heroImage: {
-    src: '/img/logo.svg',
+    src: '/img/phoenixpanel-logo.svg',
     alt: 'PhoenixPanel Interface',
   }
 };
