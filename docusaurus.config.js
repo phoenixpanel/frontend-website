@@ -47,20 +47,7 @@ const config = {
           editUrl:
             'https://github.com/phoenixpanel/panel/tree/main/docs/',
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Point to our own repository
-          editUrl:
-            'https://github.com/phoenixpanel/panel/tree/main/blog/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -141,10 +128,6 @@ const config = {
                 href: 'https://twitter.com/phoenixpanel',
                 label: 'Twitter',
               },
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
             ],
           },
           {
@@ -188,10 +171,6 @@ const config = {
               {
                 label: 'Twitter',
                 href: 'https://twitter.com/phoenixpanel',
-              },
-              {
-                label: 'Blog',
-                to: '/blog',
               },
             ],
           },
